@@ -3,7 +3,6 @@ import { Outlet} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Image from 'react-bootstrap/Image';
 import LogoImg from '../image/logo-nook-200x200.png'
@@ -24,22 +23,15 @@ const Navbars=()=> {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>
-                  Offcanvas
+                  Menu
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                        <Nav.Link href="/">หน้าหลัก</Nav.Link>
-                  <NavDropdown
-                    title="ประวัติ"
-                    id={`offcanvasNavbarDropdown-expand-md`}
-                  >
-                    <NavDropdown.Item href="/experience">ประวัติการทำงาน</NavDropdown.Item> 
-                    <NavDropdown.Item href="/education">ประวัติการศึกษา</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/skill">ความสามารถ</NavDropdown.Item>
-                  </NavDropdown>
-                  <Nav.Link href="/contact">ข้อมูลการติดต่อ</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/shop">Shop</Nav.Link>
+                        <Nav.Link href="/about">About</Nav.Link>
+                        <Nav.Link href="/contact">Contact</Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
