@@ -1,7 +1,7 @@
 const Footer =()=>{
     return(
         <>
-        <p className="footer">Jakkrit Thinwongyod</p>
+        <p className="footer">Jakkrit-Thinwongyod</p>
         </>
     )
 }
