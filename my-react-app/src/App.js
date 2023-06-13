@@ -1,11 +1,9 @@
 import './App.css';
 import Navbars from './components/navbar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './components/home';
-import Contact from './components/contact';
-import Footer from './components/footer';
-import Shoping from './components/shop';
-import About from './components/about';
+import NsCustomer from './components/nookShabu/NsCustomer';
+import NsAdmin from './components/nookShabu/NsAdmin';
+import NsKitcher from './components/nookShabu/NsKitchen';
 
 
 
@@ -15,13 +13,11 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Navbars/>}>
-          <Route index element={<Home/>}/>
-          <Route path='/shop' element={<Shoping/>}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='contact' element={<Contact/>}/>
+          <Route index element={<NsCustomer/>}/>
+          <Route path='/nsKitchen' element={<NsKitcher/>}/>
+          <Route path='/nsAdmin' element={<NsAdmin/>}/>
         </Route>
       </Routes>
-      <Footer/>
       </BrowserRouter>
     </div>
   );
