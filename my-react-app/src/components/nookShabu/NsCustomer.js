@@ -1,41 +1,85 @@
-import {Button,Card} from 'react-bootstrap';
+import { Tab, Tabs } from 'react-bootstrap';
 import DataFoods from "./Data/DataFoods";
+import { useState , useEffect } from 'react';
+import Foods from './components/Foods';
 
-const NsCustomer =()=>{
-    return(
+const NsCustomer = () => {
+
+    const [key, setKey] = useState("Meat");
+    const [foods, setFoods] = useState([]);
+
+    useEffect(() => {
+        const filterFoods = DataFoods.filter((element) => {
+            return element.type === key;
+        });
+
+        setFoods(filterFoods);
+    }, []);
+
+    const changeFoods = (selectKey) => {
+        setKey(selectKey);
+
+        const filterFoods = DataFoods.filter((element) => {
+            return element.type === selectKey;
+        });
+
+        setFoods(filterFoods);
+    }
+
+
+    return (
         <>
-        <div>Customer</div>
-        <div className='container-fluid'>
-            <div className='row'>
-                <div className='col-10'>
-                        <div className='container-fluid'>
-                            <div className='row'>
-                                {DataFoods.map((foods,id)=>{
-                                    return(
-                                            <div key={id} className='col col-xl-3 col-xxl-2'>
-                                                <Card style={{ width: '15.6rem' }} className='m-1'>
-                                                    <Card.Img variant="top" style={{ width: '12.5rem' }} className='mx-auto' src={foods.image} />
-                                                    <Card.Body>
-                                                        <Card.Title style={{ fontSize: '1.5rem' }} className='text-center'>
-                                                            {foods.title}
-                                                        </Card.Title>
-                                                        <Button variant="primary" style={{ width: '12.5rem' }}>เพิ่ม</Button>
-                                                    </Card.Body>
-                                                </Card>
-                                            </div>
-                                        
-                                        )
-                                })}
-                            </div>
-                        </div>
+            <div className='container-fluid'>
+                <div className='row'>
+                    <div className='col-10'>
+                        <h1>MENU</h1>
+                        <Tabs id="controlled-tab-example" activeKey={key} onSelect={(e) => changeFoods(e)} className="mb-3">
+                            <Tab eventKey="Meat" title="เนื้อสัตว์">
+                                <div className='container-fluid'>
+                                    <div className='row'>
+                                        {foods.map((data, id) => {
+                                            return <Foods key={id} {...data} />
+                                        })}
+                                    </div>
+                                </div>
+                            </Tab>
+                            <Tab eventKey="MeatBall" title="ลูกชิ้น">
+                                <div className='container-fluid'>
+                                    <div className='row'>
+                                        {foods.map((data, id) => {
+                                            return <Foods key={id} {...data} />
+                                        })}
+                                    </div>
+                                </div>
+                            </Tab>
+                            <Tab eventKey="Vegetable" title="ผัก">
+                                <div className='container-fluid'>
+                                    <div className='row'>
+                                        {foods.map((data, id) => {
+                                            return <Foods key={id} {...data} />
+                                        })}
+                                    </div>
+                                </div>
+                            </Tab>
+                            <Tab eventKey="Mushroom" title="เห็ด">
+                                <div className='container-fluid'>
+                                    <div className='row'>
+                                        {foods.map((data, id) => {
+                                            return <Foods key={id} {...data} />
+                                        })}
+                                    </div>
+                                </div>
+                            </Tab>
+                        </Tabs>
+
                     </div>
-                <div className='col-2'>
-                                <h1>Your Order</h1>
+                    <div className='col-2'>
+                        <h1>Your Order</h1>
+                    </div>
                 </div>
             </div>
-        </div>
-            
-        
+
+
 
         </>
     )
