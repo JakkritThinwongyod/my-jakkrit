@@ -5,16 +5,16 @@ import Foods from './components/Foods';
 import Order from './components/Order';
 
 const NsCustomer = () => {
-
     const [key, setKey] = useState("Meat");
     const [foods, setFoods] = useState([]);
 
     useEffect(() => {
         const filterFoods = DataFoods.filter((element) => {
             return element.type === key;
+            
         });
-
         setFoods(filterFoods);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const changeFoods = (selectKey) => {

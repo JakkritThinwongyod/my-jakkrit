@@ -1,56 +1,98 @@
-import { Button, Card, Tab, Tabs } from 'react-bootstrap';
+import { Button, Tab, Tabs } from 'react-bootstrap';
 import ImgLogo from '../image/Logo-Nook-Shabu-200x200.png'
 import { useState } from 'react';
 
 const Order = () => {
     const [key, setKey] = useState("OrderList");
+    const [count, setCount] = useState(1)
 
     return (
         <>
-            <img src={ImgLogo} alt="Logo" />
-            <h1>Your Order</h1>
-            <Tabs activeKey={key} onSelect={(e) => setKey(e)} id="controlled-tab-example">
-                <Tab eventKey="OrderList" title="รายการ">
-                    <Card style={{ height: "35rem" }} className='text-center'>
-                        <Card.Body>
-                            <Card.Text style={{ display: 'flex', justifyContent: 'flex-end' }}>โต๊ะที่ : 01</Card.Text>
-                            <Card.Title style={{ display: 'flex', justifyContent: 'space-between' }}><span>รายการ</span> <span> จำนวน</span></Card.Title>
-                            <Card.Text style={{ height: '25rem',display:'flex',justifyContent:'space-between' }}>
+            <div className='text-center'>
+                <img src={ImgLogo} alt="Logo" />
+                <h1 style={{
+                    color: 'red'
+                }}>Your Order</h1>
+                <Tabs activeKey={key} onSelect={(e) => setKey(e)} id="controlled-tab-example" >
+                    <Tab eventKey="OrderList" title="รายการ">
+                        <div style={{
+                            height: "35rem",
+                            padding: '1rem',
+                            borderRadius: '0rem 0rem 0.5rem 0.5rem'
+                        }}
+                            className='text-center'>
+                            <div>
+                                <div style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'flex-end',
+                                    height: '2rem',
+                                    padding: '0.5rem'
+                                }}>
+                                    <h5 style={{ padding: '0rem 0.5rem' }}>โต๊ะที่ :</h5>
+                                    <select style={{
+                                        border: 'none'
+                                    }}>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                    </select>
+                                </div>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    borderBottom: '0.1rem solid black',
+                                    padding: '0.5rem 0rem'
+                                }}>
+                                    <span>รายการ</span>
+                                    <span>จำนวน</span>
+                                </div>
+                                <div style={{
+                                    height: '25rem'
+                                }}>
+                                    <div style={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        padding: '0.5rem 0rem',
+                                        border: 'none'
+                                    }}>
+                                        <span>หมูสามชั้นสไลด์</span>
+                                        <div>
+                                            <Button variant='danger' size='sm' onClick={() => setCount((count) => count - 1)}>-</Button>
+                                            <span style={{ padding: '0 0.5rem' }}>{count}</span>
+                                            <Button variant='danger' size='sm' onClick={() => setCount((count) => count + 1)}>+</Button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <Button variant='danger' size='lg' style={{ width: '10rem' }}>สั่งอาหาร</Button>
+                            </div>
+                        </div>
+                    </Tab>
+                    <Tab eventKey="Success" title="สำเร็จ">
+                        <div>
+                            <div>โต๊ะที่ : 01</div>
+                            <div>
+                                <span>รายการ </span>
+                                <span>จำนวน</span>
                                 <div>
                                     <span>หมูสามชั้นสไลด์ </span>
+                                    <span>3</span>
                                 </div>
+                                <hr />
+                            </div>
+                            <div>
+                                <span>รอจัดส่งรายการ</span>
                                 <div>
-                                    <Button variant='danger' size='sm'>-</Button>
-                                    <span style={{padding: '0 0.5rem'}}>3</span>
-                                    <Button variant='danger' size='sm'>+</Button>
+                                    <span>หมูสามชั้นสไลด์ </span>
+                                    <span>3</span>
                                 </div>
-                            </Card.Text>
-                            <Button variant='danger' size='lg' style={{ width: '15rem' }}>สั่งอาหาร</Button>
-                        </Card.Body>
-                    </Card>
-                </Tab>
-                <Tab eventKey="Success" title="สำเร็จ">
-                    <div>
-                        <div>โต๊ะที่ : 01</div>
-                        <div>
-                            <span>รายการ </span>
-                            <span>จำนวน</span>
-                            <div>
-                                <span>หมูสามชั้นสไลด์ </span>
-                                <span>3</span>
-                            </div>
-                            <hr />
-                        </div>
-                        <div>
-                            <span>รอจัดส่งรายการ</span>
-                            <div>
-                                <span>หมูสามชั้นสไลด์ </span>
-                                <span>3</span>
                             </div>
                         </div>
-                    </div>
-                </Tab>
-            </Tabs>
+                    </Tab>
+                </Tabs>
+            </div>
         </>
     )
 }
