@@ -71,22 +71,57 @@ const Order = () => {
                         </div>
                     </Tab>
                     <Tab eventKey="Success" title="สำเร็จ">
-                        <div>
-                            <div>โต๊ะที่ : 01</div>
+                        <div style={{
+                            height: "35rem",
+                            padding: '1rem',
+                            borderRadius: '0rem 0rem 0.5rem 0.5rem'
+                        }}
+                            className='text-center'>
                             <div>
-                                <span>รายการ </span>
-                                <span>จำนวน</span>
-                                <div>
-                                    <span>หมูสามชั้นสไลด์ </span>
-                                    <span>3</span>
+                                <div style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'flex-end',
+                                    height: '2rem',
+                                    padding: '0.5rem'
+                                }}>
+                                    <h5 style={{ padding: '0rem 0.5rem' }}>โต๊ะที่ : 1</h5>
                                 </div>
-                                <hr />
-                            </div>
-                            <div>
-                                <span>รอจัดส่งรายการ</span>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    borderBottom: '0.1rem solid darkgrey',
+                                    padding: '0.5rem 0rem'
+                                }}>
+                                    <span>รายการ</span>
+                                    <span>จำนวน</span>
+                                </div>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    padding: '0.5rem 0rem',
+                                    border: 'none',
+                                    borderBottom: '0.1rem solid darkgrey',
+                                }}>
+                                    <span>หมูสามชั้นสไลด์</span>
+                                    <div>
+                                        <span style={{ padding: '0 0.5rem' }}>{count}</span>
+                                    </div>
+                                </div>
                                 <div>
-                                    <span>หมูสามชั้นสไลด์ </span>
-                                    <span>3</span>
+                                    <span style={{ color: "darkgrey" }}>รอจัดส่งรายการ</span>
+                                    <div style={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        padding: '0.5rem 0rem',
+                                        border: 'none',
+                                        borderBottom: '0.1rem solid darkgrey',
+                                    }}>
+                                        <span>หมูสามชั้นสไลด์</span>
+                                        <div>
+                                            <span style={{ padding: '0 0.5rem' }}>{count}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
