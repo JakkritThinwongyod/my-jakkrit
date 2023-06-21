@@ -30,7 +30,7 @@ const NsCustomer = () => {
 
     return (
         <>
-            <Container fluid style={{ backgroundColor: "var(--color-01)" }}>
+            <Container fluid style={{ minHeight:'56rem',backgroundColor: "var(--color-01)" }}>
                 <Row>
                     <Col xxl={10} style={{ padding: '0rem 1.5rem', }} >
                         <Tab.Container activeKey={key} onSelect={(e) => changeFoods(e)}>
@@ -52,9 +52,11 @@ const NsCustomer = () => {
                                         </Nav.Item>
                                     </Nav>
                                     <Tab.Content style={{
+                                        minHeight:'49rem',
                                         backgroundColor: 'var(--color-bg)',
                                         padding: '1.5rem',
                                         marginTop: '-1.5rem',
+                                        marginBottom:'1.5rem',
                                         borderRadius: '0.5rem'
                                     }}>
                                         <Tab.Pane eventKey="Meat">
