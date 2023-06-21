@@ -1,9 +1,9 @@
 import './App.css';
-import Navbars from './components/navbar';
+import Navbars from './Projects/navbar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NsCustomer from './components/nookShabu/NsCustomer';
-import NsAdmin from './components/nookShabu/NsAdmin';
-import NsKitcher from './components/nookShabu/NsKitchen';
+import NsCustomer from './Projects/nookShabu/NsCustomer';
+import NsAdmin from './Projects/nookShabu/NsAdmin';
+import NsKitcher from './Projects/nookShabu/NsKitchen';
 
 
 

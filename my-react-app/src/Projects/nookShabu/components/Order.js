@@ -1,4 +1,4 @@
-import { Button, Col, Image, Row, Tab, Tabs, Nav, Container, Form } from 'react-bootstrap';
+import { Button, Col, Image, Row, Tab, Nav, Container, Form } from 'react-bootstrap';
 import ImgLogo from '../image/Logo-Nook-Shabu-200x200.png'
 import { useState } from 'react';
 
