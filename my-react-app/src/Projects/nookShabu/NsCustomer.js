@@ -1,8 +1,10 @@
-import { Tab, Nav, Row, Col, Container } from 'react-bootstrap';
+import { Tab, Nav, Row, Col, Container, Image, Button } from 'react-bootstrap';
 import DataFoods from "./Data/DataFoods";
 import { useState, useEffect } from 'react';
 import Foods from './components/Foods';
 import Order from './components/Order';
+import ImgLogo from './image/Logo-Nook-Shabu-200x200.png'
+import { Route } from 'react-router-dom';
 
 const NsCustomer = () => {
     const [key, setKey] = useState("Meat");
@@ -30,78 +32,90 @@ const NsCustomer = () => {
 
     return (
         <>
-            <Container fluid style={{ minHeight:'56rem',backgroundColor: "var(--color-01)" }}>
+            <Container fluid style={{ minHeight: '56rem', backgroundColor: 'var(--color-01)', paddingBottom: '2rem' }}>
                 <Row>
-                    <Col xxl={10} style={{ padding: '0rem 1.5rem', }} >
+                    <Col xxs={12} xs={12} sm={12} md={12} lg={12} xl={10} xxl={10} style={{ padding: '0rem 1.5rem', }} >
                         <Tab.Container activeKey={key} onSelect={(e) => changeFoods(e)}>
-                            <Row>
-                                <Col>
+                            <Row style={{ marginTop: '1rem' }}>
+                                <Col xxs={12} xs={12} sm={12} md={1} lg={1} xl={1} xxl={1}>
+                                    <Row>
+                                        <Col xxs={4} xs={4} sm={4} md={4} lg={0} xl={0} xxl={0}>
+                                            <Image src={ImgLogo} style={{ width: '5rem', height: '5rem' }} className='mobile-show' />
+                                        </Col>
+                                        <Col xxs={4} xs={4} sm={4} md={4} lg={12} xl={12} xxl={12}>
+                                            <h1 style={{ color: 'var(--color-04)', paddingTop: '1.5rem', fontWeight: '700' }}>MENU</h1>
+                                        </Col>
+                                        <Col xxs={4} xs={4} sm={4} md={4} lg={0} xl={0} xxl={0}>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col xxs={12} xs={12} sm={12} md={11} lg={11} xl={11} xxl={11}>
                                     <Nav>
-                                        <h1 style={{ color: 'var(--color-04)', padding: '1.5rem 1.5rem 1.5rem 1.5rem', fontWeight: '700' }}>MENU</h1>
-                                        <Nav.Item className={key === 'Meat' ? 'nav-items active-tab' : 'nav-items'}>
-                                            <Nav.Link eventKey="Meat" style={{ color: 'var(--color-03)' }}>เนื้อสัตว์</Nav.Link>
+                                        <Nav.Item className={key === 'Meat' ? 'nav-items active-items' : 'nav-items'}>
+                                            <Nav.Link eventKey="Meat" style={key === 'Meat' ? { color: 'var(--color-04)' } : { color: 'var(--color-03)' }}>เนื้อสัตว์</Nav.Link>
                                         </Nav.Item>
-                                        <Nav.Item className={key === 'MeatBall' ? 'nav-items active-tab' : 'nav-items'}>
-                                            <Nav.Link eventKey="MeatBall" style={{ color: 'var(--color-03)' }}>ลูกชิ้น</Nav.Link>
+                                        <Nav.Item className={key === 'MeatBall' ? 'nav-items active-items' : 'nav-items'}>
+                                            <Nav.Link eventKey="MeatBall" style={key === 'MeatBall' ? { color: 'var(--color-04)' } : { color: 'var(--color-03)' }}>ลูกชิ้น</Nav.Link>
                                         </Nav.Item>
-                                        <Nav.Item className={key === 'Vegetable' ? 'nav-items active-tab' : 'nav-items'}>
-                                            <Nav.Link eventKey="Vegetable" style={{ color: 'var(--color-03)' }}>ผัก</Nav.Link>
+                                        <Nav.Item className={key === 'Vegetable' ? 'nav-items active-items' : 'nav-items'}>
+                                            <Nav.Link eventKey="Vegetable" style={key === 'Vegetable' ? { color: 'var(--color-04)' } : { color: 'var(--color-03)' }}>ผัก</Nav.Link>
                                         </Nav.Item>
-                                        <Nav.Item className={key === 'Mushroom' ? 'nav-items active-tab' : 'nav-items'}>
-                                            <Nav.Link eventKey="Mushroom" style={{ color: 'var(--color-03)' }}>เห็ด</Nav.Link>
+                                        <Nav.Item className={key === 'Mushroom' ? 'nav-items active-items' : 'nav-items'}>
+                                            <Nav.Link eventKey="Mushroom" style={key === 'Mushroom' ? { color: 'var(--color-04)' } : { color: 'var(--color-03)' }}>เห็ด</Nav.Link>
                                         </Nav.Item>
                                     </Nav>
-                                    <Tab.Content style={{
-                                        minHeight:'49rem',
-                                        backgroundColor: 'var(--color-bg)',
-                                        padding: '1.5rem',
-                                        marginTop: '-1.5rem',
-                                        marginBottom:'1.5rem',
-                                        borderRadius: '0.5rem'
-                                    }}>
-                                        <Tab.Pane eventKey="Meat">
-                                            <Container fluid>
-                                                <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                    {foods.map((data, id) => {
-                                                        return <Foods key={id} {...data} />
-                                                    })}
-                                                </Row>
-                                            </Container>
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="MeatBall">
-                                            <Container fluid>
-                                                <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                    {foods.map((data, id) => {
-                                                        return <Foods key={id} {...data} />
-                                                    })}
-                                                </Row>
-                                            </Container>
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="Vegetable">
-                                            <Container fluid>
-                                                <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                    {foods.map((data, id) => {
-                                                        return <Foods key={id} {...data} />
-                                                    })}
-                                                </Row>
-                                            </Container>
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="Mushroom">
-                                            <Container fluid>
-                                                <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                    {foods.map((data, id) => {
-                                                        return <Foods key={id} {...data} />
-                                                    })}
-                                                </Row>
-                                            </Container>
-                                        </Tab.Pane>
-                                    </Tab.Content>
                                 </Col>
+                            </Row>
+                            <Row>
+                                <Tab.Content className='food-content' style={{ backgroundColor: 'var(--color-bg)', padding: '1rem', marginBottom: '1.5rem', borderRadius: '0.5rem' }}>
+                                    <Tab.Pane eventKey="Meat">
+                                        <Container fluid >
+                                            <Row style={{ display: 'flex', justifyContent: 'flex-start' }} >
+                                                {foods.map((data, id) => {
+                                                    return <Foods key={id} {...data} />
+                                                })}
+                                            </Row>
+                                        </Container>
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="MeatBall">
+                                        <Container fluid>
+                                            <Row style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                                {foods.map((data, id) => {
+                                                    return <Foods key={id} {...data} />
+                                                })}
+                                            </Row>
+                                        </Container>
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="Vegetable">
+                                        <Container fluid>
+                                            <Row style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                                {foods.map((data, id) => {
+                                                    return <Foods key={id} {...data} />
+                                                })}
+                                            </Row>
+                                        </Container>
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="Mushroom">
+                                        <Container fluid>
+                                            <Row style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                                {foods.map((data, id) => {
+                                                    return <Foods key={id} {...data} />
+                                                })}
+                                            </Row>
+                                        </Container>
+                                    </Tab.Pane>
+                                </Tab.Content>
                             </Row>
                         </Tab.Container>
                     </Col>
-                    <Col xxl={2}>
+                    <Col sm={12} md={12} lg={12} xl={2} xxl={2} className='desktop-show'>
                         <Order />
+                    </Col>
+                    <Col className='mobile-show'>
+                        <div style={{ position: 'fixed', bottom: '0rem', right: '0', left: '0', height: '4rem',
+                         backgroundColor: 'var(--color-bg)', display: 'flex', justifyContent: 'center',alignItems:'center' }}>
+                            <Button variant='dark' style={{ padding: '0.5rem', width: '55%',height:'3rem',fontSize:'1.2rem' }}>รายการอาหาร</Button>
+                        </div>
                     </Col>
                 </Row>
             </Container>

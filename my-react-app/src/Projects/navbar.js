@@ -5,19 +5,11 @@ import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 const Navbars = () => {
   return (
     <>
-      <Navbar bg="light" expand="md"
-        style={{
-          height: '2rem',
-          boxShadow: 'rgba(149, 157, 165, 0.2) 0em 0.2rem 0.2rem'
-        }}>
+      <Navbar bg="light" expand="md" style={{ boxShadow: 'rgba(149, 157, 165, 0.2) 0em 0.2rem 0.2rem' }}>
         <Container fluid>
-          <Navbar.Brand href="/" style={{ paddingLeft: '0.5rem' }}>Administrator Control</Navbar.Brand>
+          <Navbar.Brand href="/" style={{ paddingLeft: '0.5rem' }} className="mobile-none">Administrator Control</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
-          <Navbar.Offcanvas
-            id={`offcanvasNavbar-expand-md`}
-            aria-labelledby={`offcanvasNavbarLabel-expand-md`}
-            placement="end"
-          >
+          <Navbar.Offcanvas id={`offcanvasNavbar-expand-md`} aria-labelledby={`offcanvasNavbarLabel-expand-md`} placement="end">
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>
                 Menu
