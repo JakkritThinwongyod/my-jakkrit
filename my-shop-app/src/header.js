@@ -9,6 +9,7 @@ const Herder = () => {
   const [showLanguage, setShowLanguage] = useState(false)
   const [showQrCode, setShowQrCode] = useState(false)
   const [showBannerAlert, setShowBannerAlert] = useState(false)
+  const [orderCartList,setOrderCartList] = useState(false)
 
   return (
     <div className="header">
@@ -45,9 +46,9 @@ const Herder = () => {
           </div>
           {/* Right-link-bar */}
           <div className="right-link-bar">
-            <div className="link-bar-items link-bar-relative" onMouseEnter={() => setShowBannerAlert(true)} onMouseLeave={()=>setShowBannerAlert(false)}>
+            <div className="link-bar-items link-bar-relative" onMouseEnter={() => setShowBannerAlert(true)} onMouseLeave={() => setShowBannerAlert(false)}>
               <a href="/"><i className="link-bar-icon bx bx-bell"></i>การแจ้งเตือน</a>
-              <div className='banner-alert' style={showBannerAlert ? { display: "block" } : { display: "none" }}>
+              <div className='banner-alert' style={showBannerAlert ? { display: "flex" } : { display: "none" }}>
                 <img src={BannerLogin} alt='banner Alert' />
                 <span>ลงชื้อเข้าใช้งานเพือดูการแจ้งเตือน</span>
                 <div className='banner-alert-list'>
@@ -82,9 +83,43 @@ const Herder = () => {
 
         {/* Start Head Bar */}
         <div className='head-list'>
-          <div><img src={shopLogo} style={{ width: '100px' }} alt='logo' /></div>
-          <div>search</div>
-          <div>Cart</div>
+          <div className='head-item' style={{ width: '200px', display: "flex", justifyContent: 'center', padding: '1rem' }}>
+            <img src={shopLogo} style={{ width: '70px' }} alt='logo' />
+          </div>
+          <div className='head-item' style={{ display: "flex", alignItems: 'flex-end' }}>
+            <div className='search-list'>
+              <div className='search-item search-box' >
+                <input type='text' placeholder='ค้นหา' className='search-item-input' />
+                <button className='search-item-btn'><i className='bx bx-search-alt' ></i></button>
+              </div>
+              <div className='search-item'>
+                <div className='search-item-link-list'>
+                  <a href='/'>เสื้อกันหนาว</a>
+                  <a href='/'>1 บาท</a>
+                  <a href='/'>กางเกง</a>
+                  <a href='/'>เสื้อน่ารัก</a>
+                  <a href='/'>กระเป๋า</a>
+                  <a href='/'>พาวเวอร์แบงค์</a>
+                  <a href='/'>รองเท้าผ้าใบ</a>
+                  <a href='/'>ชุดเซ็ท</a>
+                  <a href='/'>ขนม</a>
+                  <a href='/'>ลิป</a>
+                  <a href='/'>หูฟังบลูทูธ</a>
+                  <a href='/'>iPhone 11</a>
+                  <a href='/'>กระเป๋าเป้</a>
+                  <a href='/'>พวงกุญแจ</a>
+                  <a href='/'>เสื้อคลุม</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='head-item order-cart-list ' onMouseEnter={()=>setOrderCartList(true)} onMouseLeave={()=>setOrderCartList(false)}>
+            <i className='bx bx-cart-alt' ></i>
+            <div className='order-cart-box' style={orderCartList ? {display:'flex'}:{display:'none'}}>
+              <img src={BannerLogin} style={{width:'10rem'}} alt='Banner Login'/>
+              <span>ยังไม่มีสินค้าในตะกล้า</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
