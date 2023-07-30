@@ -1,5 +1,5 @@
 import "./App.css";
-import Herder from "./component/header";
+import Herder from "./header";
 
 function App() {
   return (
