@@ -48,7 +48,7 @@ const Herder = () => {
           <div className="right-link-bar">
             <div className="link-bar-items link-bar-relative" onMouseEnter={() => setShowBannerAlert(true)} onMouseLeave={() => setShowBannerAlert(false)}>
               <a href="/"><i className="link-bar-icon bx bx-bell"></i>การแจ้งเตือน</a>
-              <div className='banner-alert' style={showBannerAlert ? { display: "flex" } : { display: "none" }}>
+              <div className='banner-alert' style={showBannerAlert ? { display: "flex"} : { display: "none" }}>
                 <img src={BannerLogin} alt='banner Alert' />
                 <span>ลงชื้อเข้าใช้งานเพือดูการแจ้งเตือน</span>
                 <div className='banner-alert-list'>
