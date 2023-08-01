@@ -30,7 +30,7 @@
   display: flex;
   flex-wrap: wrap;
 }
-/* -------------------- Header -------------------- */
+/* -------------------- Header Start -------------------- */
 .header {
   display: flex;
   justify-content: center;
@@ -245,8 +245,78 @@
   font-size: 1rem;
   padding: 1rem 0;
 }
+/* -------------------- Header End -------------------- */
 
-/* -------------------- Footer -------------------- */
+/* -------------------- Content Start -------------------- */
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.full-home-banner {
+  display: flex;
+  gap: 1rem;
+}
+.home-slide {
+  width: 100%;
+}
+.home-banner-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 27.7rem;
+  width: 100%;
+}
+.home-banner-item {
+  width: 100%;
+}
+/* Slider Image Start */
+.home-slide {
+  position: relative;
+}
+.slide-list {
+  width: 100%;
+  display: flex;
+}
+.slide-item {
+  opacity: 0;
+}
+.slide-item.slide-item-active {
+  width: 100%;
+  opacity: 1;
+}
+.slide-img {
+  width: 100%;
+}
+.slide-btn-right,
+.slide-btn-left {
+  position: absolute;
+  width: 2rem;
+  height: 4rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--c-black);
+}
+.slide-btn-left{
+  left: 0;
+  transform: translate(-0%,-50%);
+  top: 50%;
+}
+.slide-btn-right{
+  right: 0;
+  transform: translate(-0%,-50%);
+  top: 50%;
+}
+.slide-btn-left:hover , .slide-btn-right:hover{
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* Slider Image End */
+/* -------------------- Content End -------------------- */
+
+/* -------------------- Footer Start -------------------- */
 .footer {
   display: flex;
   justify-content: center;
@@ -305,16 +375,18 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.footer-item-download-app-item{
+.footer-item-download-app-item {
   width: 5rem;
   background-color: var(--c-white);
   padding: 0.2rem;
   border-radius: 0.2rem;
 }
-.footer-item-download-app-item:hover,.footer-item-pay-img:hover,.footer-item-qrcode-img:hover{
+.footer-item-download-app-item:hover,
+.footer-item-pay-img:hover,
+.footer-item-qrcode-img:hover {
   box-shadow: 0.1rem 0.1rem 0 0.05rem rgb(0, 0, 0, 0.1);
 }
-.footer-copy-right{
+.footer-copy-right {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -323,3 +395,4 @@
   font-weight: 500;
   padding-top: 1rem;
 }
+/* -------------------- Footer End -------------------- */
